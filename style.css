@@ -1,0 +1,20 @@
+body {
+  background-color: rgb(8, 8, 8);
+  font-family: "Lato", sans-serif;
+  height: 100vh;
+}
+
+h1 {
+  font-family: "Koulen", cursive;
+}
+
+.container-fluid {
+  padding-top: 3vh;
+  padding-left: 10vw !important;
+  padding-right: 10vw !important;
+}
+
+.col {
+  max-width: 250px;
+  padding-bottom: 10px;
+}
