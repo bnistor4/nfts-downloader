@@ -113,7 +113,10 @@
         var tempIndex = 0;
 
         // Retrieve the image data
-        fetch(url)
+        fetch(url {
+          method : "GET",
+          mode: 'cors',
+        })
           .then((response) => {
             // Retrieve the image data as an ArrayBuffer
             return response.arrayBuffer();
