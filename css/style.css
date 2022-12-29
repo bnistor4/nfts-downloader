@@ -15,6 +15,6 @@ h1 {
 }
 
 .col {
-  max-width: 250px;
+  max-width: 250px !important;
   padding-bottom: 10px;
 }
