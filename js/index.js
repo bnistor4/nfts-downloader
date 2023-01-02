@@ -140,7 +140,7 @@
             const a = document.createElement("a");
             a.style.display = "none";
             a.href = objectURL;
-            a.download = url;
+            a.download = fileName;
 
             // Append the anchor element to the body
             document.body.appendChild(a);
