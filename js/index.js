@@ -111,9 +111,9 @@
       // Loop through the list of URLs
       imagesUrls.forEach((url) => {
         var tempIndex = 0;
-        url = url[0].url;
+        var urlRequest = url[0].url;
         // Retrieve the image data
-        fetch(url,{
+        fetch(urlRequest,{
   method: 'GET',
   mode: 'no-cors',
   headers: {
@@ -144,7 +144,7 @@
             const a = document.createElement("a");
             a.style.display = "none";
             a.href = objectURL;
-            a.download = tempIndex+"_"+urlSplit[1];
+            a.download = tempIndex+"_"+url[0].fileType;
 
             // Append the anchor element to the body
             document.body.appendChild(a);
