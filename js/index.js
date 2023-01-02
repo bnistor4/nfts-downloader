@@ -115,7 +115,7 @@
         // Retrieve the image data
         fetch(url,{
   method: 'GET',
-  mode: 'cors',
+  mode: 'no-cors',
   headers: {
     'Access-Control-Allow-Origin' : '*',
     'Access-Control-Allow-Headers' : 'Origin, X-Api-Key, X-Requested-With, Content-Type, Accept, Authorization',
