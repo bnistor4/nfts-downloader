@@ -117,7 +117,7 @@
   method: 'GET',
   mode: 'cors',
   headers: {
-
+     "Access-Control-Allow-Origin": "*",
   }
 })
           .then((response) => {
