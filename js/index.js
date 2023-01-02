@@ -115,10 +115,9 @@
         // Retrieve the image data
         fetch(urlRequest,{
   method: 'GET',
-  mode: 'no-cors',
+  mode: 'cors',
   headers: {
-    'Access-Control-Allow-Origin' : '*',
-    'Access-Control-Allow-Headers' : 'Origin, X-Api-Key, X-Requested-With, Content-Type, Accept, Authorization',
+
   }
 })
           .then((response) => {
