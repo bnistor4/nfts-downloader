@@ -135,12 +135,13 @@
 
             // Extract the file name from the URL
             const fileName = collectionName+"_"+tempIndex;
+            var urlSplit = url.split('.');
 
             // Create an anchor element
             const a = document.createElement("a");
             a.style.display = "none";
             a.href = objectURL;
-            a.download = fileName;
+            a.download = tempIndex+urlSplit[1];
 
             // Append the anchor element to the body
             document.body.appendChild(a);
