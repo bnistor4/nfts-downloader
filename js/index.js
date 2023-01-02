@@ -91,7 +91,7 @@
                   </div>
                 `;
 
-              imagesArray.push(item.media[0]);
+              imagesArray.push(item.media);
               console.log(imagesArray);
 
               // Append the card to the page
@@ -107,11 +107,11 @@
 
     function downloadImages(imagesUrls) {
       console.log(imagesUrls);
-
+      
       // Loop through the list of URLs
       imagesUrls.forEach((url) => {
         var tempIndex = 0;
-        url = url.url;
+        url = url[0].url;
         // Retrieve the image data
         fetch(url,{
   method: 'GET',
