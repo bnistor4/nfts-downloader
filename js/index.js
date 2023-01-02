@@ -135,7 +135,10 @@
 
             // Extract the file name from the URL
             const fileName = collectionName+"_"+tempIndex;
+          
+            console.log(url);
             var urlSplit = url.split('/');
+            console.log(urlSplit);
 
             // Create an anchor element
             const a = document.createElement("a");
