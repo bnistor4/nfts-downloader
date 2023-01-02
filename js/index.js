@@ -118,7 +118,7 @@
   mode: 'cors',
   headers: {
     'Access-Control-Allow-Origin' : '*',
-    'Access-Control-Allow-Headers' : 'Origin, X-Api-Key, X-Requested-With, Content-Type, Accept, Authorization'
+    'Access-Control-Allow-Headers' : 'Origin, X-Api-Key, X-Requested-With, Content-Type, Accept, Authorization',
     'Content-Type': 'application/json',
   }
 })
