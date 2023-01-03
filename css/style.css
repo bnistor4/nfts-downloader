@@ -4,9 +4,6 @@ body {
   height: 100vh;
 }
 
-h1 {
-  font-family: "Koulen", cursive;
-}
 
 .container-fluid {
   padding-top: 3vh;
