@@ -14,6 +14,10 @@
       rel="stylesheet"
     />
 
+    <script src="https://cdn.jsdelivr.net/npm/web-streams-polyfill@2.0.2/dist/ponyfill.min.js"></script>
+    <!-- includes blob.stream() polyfill -->
+    <script src="https://cdn.jsdelivr.net/gh/eligrey/Blob.js/Blob.js"></script>
+
     <!-- Jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
@@ -33,26 +37,36 @@
     ></script>
   </head>
 
-  <body>
-    <div class="container p-3">
-
+  <body class="container-fluid">
+    <div class="container">
       <figure>
         <blockquote class="blockquote">
           <p>Insert your wallet address.</p>
         </blockquote>
         <figcaption class="blockquote-footer">
-          Then you can download all your <cite title="Magical NFT's">Magical NFT's</cite>
+          This tool helps you to download all your 
+          <cite title="Magical NFT's">Magical NFT's</cite>
+          with some simple clicks.
         </figcaption>
       </figure>
+      <ul class="list-group pb-3">
+        <li class="list-inline-item">➡️ Put your address.</li>
+        <li class="list-inline-item">👆 Select the collection.</li>
+        <li class="list-inline-item">🪄 Download all the images/video.</li>
+      </ul>
 
       <div class="input-group flex-nowrap mb-3">
         <span class="input-group-text" id="addon-wrapping">Wallet</span>
-        <input type="text" class="form-control" id="wallet-address" placeholder="erd1t..." aria-label="Wallet" aria-describedby="addon-wrapping">
+        <input
+          type="text"
+          class="form-control"
+          id="wallet-address"
+          placeholder="erd1t..."
+          aria-label="Wallet"
+          aria-describedby="addon-wrapping"
+        />
       </div>
-      <div class="alert alert-danger" role="alert">
-        Invalid address
-      </div>
-
+      <div class="alert alert-danger" role="alert">Invalid address</div>
       <select
         class="form-select form-select-sm mb-3"
         aria-label=".form-select-sm example"
@@ -61,15 +75,24 @@
         <option value="1">First put your wallet!!</option>
       </select>
 
-      <button type="button" class="btn btn-primary get-collections">Get Collections</button>
-      <button type="button" class="btn btn-secondary get-download">Download</button>
+      <button type="button" class="btn btn-primary get-collections">
+        Get Collections
+      </button>
+      <button type="button" class="btn btn-success get-download">
+        Download
+      </button>
 
       <div class="container mt-5 text-center">
-        <div class="row">
-          
-        </div>
+        <div class="row"></div>
       </div>
     </div>
+
+    <footer class="container fixed-bottom text-center">
+      <p>
+        built with ❤️ by
+        <a href="https://twitter.com/bnistor4" class="text-green">@bnistor4</a>
+      </p>
+    </footer>
 
     <script src="js/index.js"></script>
   </body>
