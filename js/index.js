@@ -11,7 +11,7 @@
     $(".get-collections").on("click", function () {
       address = $("#wallet-address").val();
       if (address.length > 0) {
-        getCards(address);
+        getCollections(address);
         $(".alert-danger").hide();
         $(".form-select").show();
       } else {
@@ -28,7 +28,7 @@
       downloadImages(imagesArray);
     });
 
-    function getCards(address) {
+    function getCollections(address) {
       // Make the AJAX call using the fetch function
       fetch(
         "https://api.elrond.com/accounts/" + address + "/collections?size=1000"
@@ -50,6 +50,8 @@
               $("<option />").val(item.collection).text(item.collection)
             );
           });
+
+          $(".get-collections").addClass("disabled");
         })
         .catch((error) => {
           // If there is an error, log it to the console
@@ -108,24 +110,23 @@
       // Loop through the list of URLs
       imagesUrls.forEach((url) => {
         var tempIndex = 0;
+        console.log(url)
         var urlRequest = url[0].url;
-        downloadImage(urlRequest)
+        downloadImage(urlRequest);
       });
-
     }
 
     async function downloadImage(imageSrc) {
-      const image = await fetch(imageSrc)
-      const imageBlog = await image.blob()
-      const imageURL = URL.createObjectURL(imageBlog)
-    
-      const link = document.createElement('a')
-      link.href = imageURL
-      link.download = 'image file name here'
-      document.body.appendChild(link)
-      link.click()
-      document.body.removeChild(link)
+      const image = await fetch(imageSrc);
+      const imageBlog = await image.blob();
+      const imageURL = URL.createObjectURL(imageBlog);
+
+      const link = document.createElement("a");
+      link.href = imageURL;
+      link.download = collectionName+"_bnistor4";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
     }
-    
   });
 })(jQuery);
