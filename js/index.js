@@ -110,23 +110,38 @@
       // Loop through the list of URLs
       imagesUrls.forEach((url) => {
         var tempIndex = 0;
-        console.log(url)
+        console.log(url);
         var urlRequest = url[0].url;
         downloadImage(urlRequest);
       });
     }
 
     async function downloadImage(imageSrc) {
-      const image = await fetch(imageSrc);
+      const image = await fetch(
+        "https://api.codetabs.com/v1/proxy?quest=" + imageSrc,
+        {
+          method: "GET",
+          headers: {},
+        }
+      );
+
       const imageBlog = await image.blob();
       const imageURL = URL.createObjectURL(imageBlog);
 
       const link = document.createElement("a");
       link.href = imageURL;
-      link.download = collectionName+"_bnistor4";
+      link.download = collectionName + "_bnistor4";
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
+    }
+
+    function crossOrigin(imageSrc) {
+      var co = "https://api.codetabs.com/v1/proxy?quest=";
+      src = co + url;
+      img_obj.crossOrigin = "anonymous";
+      img_obj.onload = function () {};
+      img_obj.src = src;
     }
   });
 })(jQuery);
