@@ -73,8 +73,6 @@
         .then((data) => {
           // Loop through the data and create a new card for each item
           data.forEach((item) => {
-            console.log(item.media);
-
             // Create the card element
             const card = document.createElement("div");
             card.classList.add("col");
@@ -92,7 +90,6 @@
                 `;
 
               imagesArray.push(item.media);
-              console.log(imagesArray);
 
               // Append the card to the page
               document.querySelector(".container .row").appendChild(card);
@@ -107,61 +104,28 @@
 
     function downloadImages(imagesUrls) {
       console.log(imagesUrls);
-      
+
       // Loop through the list of URLs
       imagesUrls.forEach((url) => {
         var tempIndex = 0;
         var urlRequest = url[0].url;
-        // Retrieve the image data
-        fetch(urlRequest,{
-  method: 'GET',
-  mode: 'cors',
-  headers: {
-     "Access-Control-Allow-Origin": "*",
-  }
-})
-          .then((response) => {
-            // Retrieve the image data as an ArrayBuffer
-            return response.arrayBuffer();
-          })
-          .then((buffer) => {
-            tempIndex = tempIndex+1;
-            // Create a Blob object from the ArrayBuffer
-            const blob = new Blob([buffer]);
-
-            // Create a URL that can be used to download the image
-            const objectURL = URL.createObjectURL(blob);
-
-            // Extract the file name from the URL
-            const fileName = collectionName+"_"+tempIndex;
-          
-            console.log(url);
-            var urlSplit = url.split('/');
-            console.log(urlSplit);
-
-            // Create an anchor element
-            const a = document.createElement("a");
-            a.style.display = "none";
-            a.href = objectURL;
-            a.download = tempIndex+"_"+url[0].fileType;
-
-            // Append the anchor element to the body
-            document.body.appendChild(a);
-
-            // Click the anchor element to start the download
-            a.click();
-
-            // Remove the anchor element from the body
-            document.body.removeChild(a);
-
-            // Revoke the object URL
-            URL.revokeObjectURL(objectURL);
-          })
-          .catch((error) => {
-            // If there is an error, log it to the console
-            console.error(error);
-          });
+        downloadImage(urlRequest)
       });
+
     }
+
+    async function downloadImage(imageSrc) {
+      const image = await fetch(imageSrc)
+      const imageBlog = await image.blob()
+      const imageURL = URL.createObjectURL(imageBlog)
+    
+      const link = document.createElement('a')
+      link.href = imageURL
+      link.download = 'image file name here'
+      document.body.appendChild(link)
+      link.click()
+      document.body.removeChild(link)
+    }
+    
   });
 })(jQuery);
